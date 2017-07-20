@@ -1,6 +1,29 @@
+require "./Player"
+require "./Board"
+require "./BoardCase"
+
 class Game
   def initialize
-    #TO DO : créé 2 joueurs, créé un board
+  	puts "==================================================="
+  	puts "Bienvenue dans l'experience interactive TIC_TAC_TOE"
+  	puts "===================================================\n\n"
+
+    puts "Player 1, veuillez entrer votre nom: "
+    @name1 = gets.chomp
+    while @sign != "X" && @sign != "O"
+    	puts "\n#{@name1} veuillez choisir votre signe: X ou O "
+    	@sign = gets.chomp
+    	break if @sign == 0
+    end
+
+    puts "\nPlayer 2, veuillez entrer votre nom"
+    @name2 = gets.chomp
+    if @sign1 == "X"
+    	@sign2 = "O"
+    else
+    	@sign2 = "X"
+    end
+    puts "\n#{@name2}, votre signe est #{@sign2}"
   end
 
   def go
