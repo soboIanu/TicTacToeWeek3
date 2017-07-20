@@ -1,39 +1,36 @@
 require "./Player"
 require "./Board"
-require "./BoardCase"
 
 class Game
+
   def initialize
-  	puts "==================================================="
-  	puts "Bienvenue dans l'experience interactive TIC_TAC_TOE"
-  	puts "===================================================\n\n"
+  	puts "\nVeuillez entre votre nom player 1"
+	player_1 = gets.chomp
+	player_1 = Player.new(player_1, "X")
+	puts "#{player_1.name} vous avez le signe #{player_1.mark}."
 
-    puts "Player 1, veuillez entrer votre nom: "
-    @name1 = gets.chomp
-    while @sign != "X" && @sign != "O"
-    	puts "\n#{@name1} veuillez choisir votre signe: X ou O "
-    	@sign = gets.chomp
-    	break if @sign == 0
-    end
+	puts "\nVeuillez entre votre nom player 2"
+	player_2 = gets.chomp
+	player_2 = Player.new(player_2, "O")
+	puts "#{player_2.name} vous avez le signe #{player_2.mark}."
 
-    puts "\nPlayer 2, veuillez entrer votre nom"
-    @name2 = gets.chomp
-    if @sign1 == "X"
-    	@sign2 = "O"
-    else
-    	@sign2 = "X"
-    end
-    puts "\n#{@name2}, votre signe est #{@sign2}"
+	game_begin
   end
 
-  def go
-    # TO DO : lance la partie
+  def game_begin
+	board = Board.new
+	turn
   end
 
-  def turn
-    #TO DO : affiche le plateau, demande au joueur il joue quoi, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie
+  def turn (player_1, player_2)
+  	
+  	board.game_played
   end
 
 end
 
-Game.new.go
+Game.new
+
+
+
+
